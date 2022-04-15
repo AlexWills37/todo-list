@@ -16,10 +16,11 @@ import { Component, OnInit, EventEmitter, Output, Input } from '@angular/core';
     <!-- Angular is smart, and only activates this binding to update the property, when the value changes -->
     <!-- keyup - when a key is released -->
     <!-- # - Angular stores this html element in the variable inputElementRef -->
+    <!-- submitValue($event.target.value) -->
     <input class="todo-input"
            #inputElementRef
            [value]="title"
-           (keyup.enter)="submitValue($event.target.value)">
+           (keyup.enter)="submitValueFromTarget($event.target)">
     <!-- $event - the event being triggered -->
     <!-- .target - the source of the event -->
 
@@ -62,6 +63,10 @@ export class InputButtonUnitComponent implements OnInit {
 
   submitValue(newTitle: string){
     this.submit.emit(newTitle);
+  }
+
+  submitValueFromTarget(newTitle: EventTarget){
+    this.submit.emit((newTitle as HTMLInputElement).value);
   }
 
   setTitle(newTitle: string){
