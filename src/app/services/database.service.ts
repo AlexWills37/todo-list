@@ -37,7 +37,7 @@ export class DatabaseService {
       method: 'POST',
       headers: {
           'Content-Type': 'application/json',
-          'Access-Control-Request-Headers': 'yes',
+          'Access-Control-Request-Headers': '*',
           'api-key': this.databaseKey
       },
       body: JSON.stringify({    "collection":"tweets",    "database":"redtideDB",    "dataSource":"Project-3", })
