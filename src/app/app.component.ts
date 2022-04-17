@@ -9,6 +9,7 @@ import { TodoItem } from './interfaces/todo-item'
     </h1>
 
     <app-list-manager></app-list-manager>
+    <app-data-test></app-data-test>
   `,
   styleUrls: ['./app.component.scss']
 })
